@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <SFML/Graphics.hpp>
 
-class LeftPaddle{
+class Paddle{
     
 private:
     float x;
@@ -27,8 +27,8 @@ private:
     
 public:
     //constructor
-    LeftPaddle();
-    LeftPaddle(float x, float y);
+    Paddle();
+    Paddle(float x, float y);
     
     //methods
     void moveUp();

@@ -5,13 +5,12 @@
 #include <ctime>
 #include <chrono>
 #include <fstream>
-#include "rightPaddle.hpp"
-#include "leftPaddle.hpp"
+#include "paddle.hpp"
 #include "ball.hpp"
 
 //create paddles
-LeftPaddle leftPaddle1;
-LeftPaddle rightPaddle1(1150, 300);
+Paddle leftPaddle1;
+Paddle rightPaddle1(1150, 300);
 Ball ball1;
 using namespace std;
 int main()

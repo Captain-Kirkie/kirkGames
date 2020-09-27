@@ -5,9 +5,9 @@
 //  Created by Kirk Hietpas on 9/26/20.
 //
 
-#include "leftPaddle.hpp"
+#include "paddle.hpp"
 //default constructor
-LeftPaddle::LeftPaddle(){
+Paddle::Paddle(){
     x = 15;
     //originalY = 100;
     y = 300;
@@ -21,7 +21,7 @@ LeftPaddle::LeftPaddle(){
 }
 
 //constructor for right paddle
-LeftPaddle::LeftPaddle(float xStart, float yStart){
+Paddle::Paddle(float xStart, float yStart){
     x = xStart;
     //originalY = 100;
     y = yStart;
@@ -41,19 +41,19 @@ LeftPaddle::LeftPaddle(float xStart, float yStart){
 
 
 
-void LeftPaddle::draw(sf::RenderWindow & window){
+void Paddle::draw(sf::RenderWindow & window){
     window.draw(PaddleShape);
 }
 
 
-void LeftPaddle::moveUp(){
+void Paddle::moveUp(){
     if(y > yUpperBounds){
         y -= 35.f;
         PaddleShape.setPosition(x, y);
     }
 }
 
-void LeftPaddle::moveDown(){
+void Paddle::moveDown(){
     if(y < yLowerBounds){
         y += 35.f;
         PaddleShape.setPosition(x, y);
@@ -61,7 +61,7 @@ void LeftPaddle::moveDown(){
 }
 
 
-sf::FloatRect LeftPaddle::getBoundingBox(){
+sf::FloatRect Paddle::getBoundingBox(){
     return boundingBox;
 }
 

@@ -7,7 +7,7 @@
 
 #ifndef ball_hpp
 #define ball_hpp
-#include "leftPaddle.hpp"
+#include "paddle.hpp"
 
 
 #include <stdio.h>
@@ -42,7 +42,7 @@ public:
    
     void moveDown();
     
-    void move(LeftPaddle& PADDLELeft, LeftPaddle PADDLERight);
+    void move(Paddle& PADDLELeft, Paddle PADDLERight);
     
     //constructor
     Ball();

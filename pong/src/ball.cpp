@@ -33,8 +33,8 @@ Ball::Ball(){
     ball.setPosition(x, y); //should change this to x and y eventually
     boundingBox = ball.getGlobalBounds();
 }
-
-void Ball::move(LeftPaddle& PADDLELeft, LeftPaddle PADDLERight){
+//ball.movement
+void Ball::move(Paddle& PADDLELeft, Paddle PADDLERight){
     if(isMovingLeft && (!CollisionTest(ball, PADDLELeft.PaddleShape))){ //move left bool true and not colliding move left
         moveLeft();
     }
@@ -63,11 +63,7 @@ void Ball::move(LeftPaddle& PADDLELeft, LeftPaddle PADDLERight){
             isMovingDown = true;
         }
     }
-    
-    
 }
-    
-    
     
 //    if(CollisionTest(ball, PADDLELeft.leftPaddleShape)){ //if colliding move
 //        isMovingLeft = false;
