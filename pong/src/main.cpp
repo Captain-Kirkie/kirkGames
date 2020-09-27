@@ -11,6 +11,7 @@
 
 //create paddles
 LeftPaddle leftPaddle1;
+RightPaddle rightPaddle1;
 Ball ball1;
 using namespace std;
 int main()
@@ -30,12 +31,20 @@ int main()
                 window.close();
             
             if(event.type == sf::Event::KeyPressed){
-                if (event.key.code == sf::Keyboard::Down){
+                if (event.key.code == sf::Keyboard::A){
                     leftPaddle1.moveDown();
                 }
-                if (event.key.code == sf::Keyboard::Up){
+                if (event.key.code == sf::Keyboard::Q){
                     leftPaddle1.moveUp();
                 }
+                if (event.key.code == sf::Keyboard::Down){
+                    rightPaddle1.moveDown();
+                }
+                if (event.key.code == sf::Keyboard::Up){
+                    rightPaddle1.moveUp();
+                }
+                
+                
             }
         }
         
@@ -55,6 +64,7 @@ int main()
     // window.draw(leftPaddle);
 	
         leftPaddle1.draw(window);
+        rightPaddle1.draw(window);
         ball1.draw(window);
         // end the current frame
         window.display();
