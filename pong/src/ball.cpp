@@ -34,8 +34,8 @@ Ball::Ball(){
     boundingBox = ball.getGlobalBounds();
 }
 
-void Ball::move(LeftPaddle& LEFT){
-    if(isMovingLeft && (!CollisionTest(ball, LEFT.leftPaddleShape))){ //moving left and down
+void Ball::move(LeftPaddle& Paddle){ //TODO: figure out how to hit right paddle and bounce back
+    if(isMovingLeft && (!CollisionTest(ball, Paddle.leftPaddleShape))){ //moving left and down
             moveLeft();
     }
     else{
@@ -44,6 +44,7 @@ void Ball::move(LeftPaddle& LEFT){
     if(!isMovingLeft){
         moveRight();
     }
+    
     if(isMovingDown){
         moveDown();
         if(y >= 775){
