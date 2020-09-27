@@ -56,6 +56,9 @@ void Ball::move(LeftPaddle& LEFT){
             isMovingDown = true;
         }
     }
+
+
+
 }
     
     

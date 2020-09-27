@@ -8,14 +8,13 @@
 #include "rightPaddle.hpp"
 RightPaddle::RightPaddle(){
     x = 1150;
-    //originalY = 100;
     y = 300;
     yLowerBounds = 600;
     yUpperBounds = 0;
     rightPaddleShape.setSize(sf::Vector2f(35.f, 200.f));
     rightPaddleShape.setFillColor(sf::Color::Green);
     rightPaddleShape.scale(1,1);
-    rightPaddleShape.setPosition(x, y); //should change this to x and y eventually
+    rightPaddleShape.setPosition(x, y); 
     boundingBox = rightPaddleShape.getGlobalBounds();
 }
 void RightPaddle::draw(sf::RenderWindow & window){
@@ -36,7 +35,6 @@ void RightPaddle::moveDown(){
         rightPaddleShape.setPosition(x, y);
     }
 }
-
 
 sf::FloatRect RightPaddle::getBoundingBox(){
     return boundingBox;
