@@ -25,7 +25,7 @@ cmake_minimum_required(VERSION 3.15)
 project(pong)
 
 #the project contains an executable named testSFML that uses the following cpp files
-add_executable(pong src/pong.cpp)
+add_executable(pong src/main.cpp src/collision.cpp src/paddle.cpp src/ball.hpp src/collision.hpp src/paddle.hpp src/ball.cpp)
 
 #create a folder named "cmake" at the top of your project and put the
 #findSFML.cmake file in it.  This line tells Cmake to look there for
