@@ -28,6 +28,7 @@ private:
     float velocity;
     sf::CircleShape ball;
     bool isMovingLeft;
+    bool isMovingDown;
     sf::FloatRect boundingBox;
     
 public:

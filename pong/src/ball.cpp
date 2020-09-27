@@ -26,6 +26,7 @@ Ball::Ball(){
     xUpperBounds = 1200;
     xLowerBounds = 0;
     isMovingLeft = true;
+    isMovingDown = true;
     ball.setRadius(20.f);
     ball.setFillColor(sf::Color::Yellow);
     ball.scale(1,1);
@@ -34,35 +35,85 @@ Ball::Ball(){
 }
 
 void Ball::move(LeftPaddle& LEFT){
-    if(isMovingLeft){
-        if(!CollisionTest(ball, LEFT.leftPaddleShape))
+    if(isMovingLeft && isMovingDown){ //moving left and down
+        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
             moveLeft();
+            moveDown();
+        }
         else{
             isMovingLeft = false;
         }
     }
-    else if(!isMovingLeft){
-        moveRight();
+    
+    if(isMovingLeft && !isMovingDown){ //move left and up
+        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
+            if(!CollisionTest(ball, LEFT.leftPaddleShape)){
+                moveLeft();
+                moveUp();
+            }
+        }
     }
+    
+    if(!isMovingLeft && isMovingDown){ //moving right and down
+        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
+            moveRight();
+            moveDown();
+        }
+    }
+    if(!isMovingLeft && !isMovingDown){ //moving right and up
+        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
+            moveRight();
+            moveUp();
+        }
+    }
+    
+    if(y >= 775){
+        isMovingDown = false;
+    }
+    if(y <= 0){
+        isMovingDown = true;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
 }
 
+
+
+
+
+//if y >= 800 go up
+//if y <= 0 go down
+//if x <= 0 score
+//if x >= 1200
+
+
+
 void Ball::moveLeft(){
-    x-= .15;
+    x-= .05;
     ball.setPosition(x, y);
 }
 
 void Ball::moveRight(){
-        x+= .15;
+        x+= .05;
         ball.setPosition(x, y);
 }
 
 void Ball::moveUp(){
-        y-= .15;
+        y-= .05;
         ball.setPosition(x, y);
 }
 
 void Ball::moveDown(){
-        y+= .15;
+        y+= .05;
         ball.setPosition(x, y);
 }
 
