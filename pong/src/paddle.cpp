@@ -37,10 +37,6 @@ Paddle::Paddle(float xStart, float yStart){
 
 
 
-
-
-
-
 void Paddle::draw(sf::RenderWindow & window){
     window.draw(PaddleShape);
 }
@@ -66,3 +62,15 @@ sf::FloatRect Paddle::getBoundingBox(){
 }
 
 
+
+
+
+
+
+
+//getting paddle to track??
+/*
+ for(int p = 0; p < proj1.size(); p++){
+     proj1[p].shape.move(((character.shape.getPosition().x - vecOfBadCoins[p].shape.getPosition().x) * .0001), ((character.shape.getPosition().y - vecOfBadCoins[p].shape.getPosition().y) *.0001)); //finds direction to where character is and moves projectiles in that direction; * .0001 to slow down projectiles to reasonable speed
+ 
+ */
