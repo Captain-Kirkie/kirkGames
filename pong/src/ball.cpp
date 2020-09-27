@@ -34,15 +34,21 @@ Ball::Ball(){
     boundingBox = ball.getGlobalBounds();
 }
 
-void Ball::move(LeftPaddle& Paddle){ //TODO: figure out how to hit right paddle and bounce back
-    if(isMovingLeft && (!CollisionTest(ball, Paddle.leftPaddleShape))){ //moving left and down
-            moveLeft();
+void Ball::move(LeftPaddle& PADDLELeft, LeftPaddle PADDLERight){
+    if(isMovingLeft && (!CollisionTest(ball, PADDLELeft.leftPaddleShape))){ //move left bool true and not colliding move left
+        moveLeft();
     }
-    else{
+    
+    if(!isMovingLeft &&(!CollisionTest(ball, PADDLERight.leftPaddleShape))){ //move left false and not colliding move right
+        moveRight();
+    }
+    
+    if(CollisionTest(ball, PADDLELeft.leftPaddleShape)){ //if colliding with left paddle set isMovingleftbool to false
         isMovingLeft = false;
     }
-    if(!isMovingLeft){
-        moveRight();
+    
+    if(CollisionTest(ball, PADDLERight.leftPaddleShape)){ //if colliding with right paddle set isMovingLeftBool to true
+        isMovingLeft = true;
     }
     
     if(isMovingDown){
@@ -57,34 +63,55 @@ void Ball::move(LeftPaddle& Paddle){ //TODO: figure out how to hit right paddle 
             isMovingDown = true;
         }
     }
-
-
-
-}
     
     
-//    if(isMovingLeft && !isMovingDown){ //move left and up
-//        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
-//            if(!CollisionTest(ball, LEFT.leftPaddleShape)){
-//                moveLeft();
-//                moveUp();
-//            }
+}c   
+    
+    
+    
+//    if(CollisionTest(ball, PADDLELeft.leftPaddleShape)){ //if colliding move
+//        isMovingLeft = false;
+//    }
+//    else if(!isMovingLeft){
+//        moveRight();
+//    }
+//    else if(!isMovingLeft && CollisionTest(ball, PADDLELeft.leftPaddleShape)){
+//        isMovingLeft = true;
+//    }
+    
+    
+    
+    
+    
+    
+
+
+
+    
+//void Ball::move(LeftPaddle& LEFT){
+//    if(isMovingLeft && (!CollisionTest(ball, LEFT.leftPaddleShape))){ //moving left and down
+//            moveLeft();
+//    }
+//    else{
+//        isMovingLeft = false;
+//    }
+//    if(!isMovingLeft){
+//        moveRight();
+//    }
+//    if(isMovingDown){
+//        moveDown();
+//        if(y >= 775){
+//            isMovingDown = false;
+//        }
+//    }
+//    if(!isMovingDown){
+//        moveUp();
+//        if(y <= 0){
+//            isMovingDown = true;
 //        }
 //    }
 //
-//    if(!isMovingLeft && isMovingDown){ //moving right and down
-//        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
-//            moveRight();
-//            moveDown();
-//        }
-//    }
-//    if(!isMovingLeft && !isMovingDown){ //moving right and up
-//        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
-//            moveRight();
-//            moveUp();
-//        }
-//    }
-    
+//}
    
     
     

@@ -11,7 +11,7 @@
 
 //create paddles
 LeftPaddle leftPaddle1;
-RightPaddle rightPaddle1;
+LeftPaddle rightPaddle1(1150, 300);
 Ball ball1;
 using namespace std;
 int main()
@@ -37,6 +37,7 @@ int main()
                 if (event.key.code == sf::Keyboard::Q){
                     leftPaddle1.moveUp();
                 }
+              
                 if (event.key.code == sf::Keyboard::Down){
                     rightPaddle1.moveDown();
                 }
@@ -44,12 +45,11 @@ int main()
                     rightPaddle1.moveUp();
                 }
                 
-                
             }
         }
         
         //ball movment
-        ball1.move(leftPaddle1);
+        ball1.move(leftPaddle1, rightPaddle1);
      //  ball1.moveDown();
 
         // clear the window with black color
@@ -64,8 +64,8 @@ int main()
     // window.draw(leftPaddle);
 	
         leftPaddle1.draw(window);
-        rightPaddle1.draw(window);
         ball1.draw(window);
+        rightPaddle1.draw(window);
         // end the current frame
         window.display();
     }

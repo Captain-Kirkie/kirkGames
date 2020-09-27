@@ -28,6 +28,7 @@ private:
 public:
     //constructor
     LeftPaddle();
+    LeftPaddle(float x, float y);
     
     //methods
     void moveUp();

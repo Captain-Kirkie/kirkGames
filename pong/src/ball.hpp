@@ -42,7 +42,7 @@ public:
    
     void moveDown();
     
-    void move(LeftPaddle& leftPaddle);
+    void move(LeftPaddle& PADDLELeft, LeftPaddle PADDLERight);
     
     //constructor
     Ball();
