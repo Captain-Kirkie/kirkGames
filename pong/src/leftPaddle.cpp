@@ -13,11 +13,11 @@ LeftPaddle::LeftPaddle(){
     y = 300;
     yLowerBounds = 600;
     yUpperBounds = 0;
-    leftPaddleShape.setSize(sf::Vector2f(35.f, 200.f));
-    leftPaddleShape.setFillColor(sf::Color::Red);
-    leftPaddleShape.scale(1,1);
-    leftPaddleShape.setPosition(x, y);
-    boundingBox = leftPaddleShape.getGlobalBounds();
+    PaddleShape.setSize(sf::Vector2f(35.f, 200.f));
+    PaddleShape.setFillColor(sf::Color::Red);
+    PaddleShape.scale(1,1);
+    PaddleShape.setPosition(x, y);
+    boundingBox = PaddleShape.getGlobalBounds();
 }
 
 //constructor for right paddle
@@ -27,11 +27,11 @@ LeftPaddle::LeftPaddle(float xStart, float yStart){
     y = yStart;
     yLowerBounds = 600;
     yUpperBounds = 0;
-    leftPaddleShape.setSize(sf::Vector2f(35.f, 200.f));
-    leftPaddleShape.setFillColor(sf::Color::Green);
-    leftPaddleShape.scale(1,1);
-    leftPaddleShape.setPosition(x, y); 
-    boundingBox = leftPaddleShape.getGlobalBounds();
+    PaddleShape.setSize(sf::Vector2f(35.f, 200.f));
+    PaddleShape.setFillColor(sf::Color::Green);
+    PaddleShape.scale(1,1);
+    PaddleShape.setPosition(x, y); 
+    boundingBox = PaddleShape.getGlobalBounds();
     
 }
 
@@ -42,21 +42,21 @@ LeftPaddle::LeftPaddle(float xStart, float yStart){
 
 
 void LeftPaddle::draw(sf::RenderWindow & window){
-    window.draw(leftPaddleShape);
+    window.draw(PaddleShape);
 }
 
 
 void LeftPaddle::moveUp(){
     if(y > yUpperBounds){
         y -= 35.f;
-        leftPaddleShape.setPosition(x, y);
+        PaddleShape.setPosition(x, y);
     }
 }
 
 void LeftPaddle::moveDown(){
     if(y < yLowerBounds){
         y += 35.f;
-        leftPaddleShape.setPosition(x, y);
+        PaddleShape.setPosition(x, y);
     }
 }
 

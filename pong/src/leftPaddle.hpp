@@ -34,7 +34,7 @@ public:
     void moveUp();
     void moveDown();
     void draw(sf::RenderWindow & window);
-    sf::RectangleShape leftPaddleShape;//could write getter method
+    sf::RectangleShape PaddleShape;//could write getter method
     
     
     sf::FloatRect getBoundingBox();

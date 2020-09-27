@@ -35,19 +35,19 @@ Ball::Ball(){
 }
 
 void Ball::move(LeftPaddle& PADDLELeft, LeftPaddle PADDLERight){
-    if(isMovingLeft && (!CollisionTest(ball, PADDLELeft.leftPaddleShape))){ //move left bool true and not colliding move left
+    if(isMovingLeft && (!CollisionTest(ball, PADDLELeft.PaddleShape))){ //move left bool true and not colliding move left
         moveLeft();
     }
     
-    if(!isMovingLeft &&(!CollisionTest(ball, PADDLERight.leftPaddleShape))){ //move left false and not colliding move right
+    if(!isMovingLeft &&(!CollisionTest(ball, PADDLERight.PaddleShape))){ //move left false and not colliding move right
         moveRight();
     }
     
-    if(CollisionTest(ball, PADDLELeft.leftPaddleShape)){ //if colliding with left paddle set isMovingleftbool to false
+    if(CollisionTest(ball, PADDLELeft.PaddleShape)){ //if colliding with left paddle set isMovingleftbool to false
         isMovingLeft = false;
     }
     
-    if(CollisionTest(ball, PADDLERight.leftPaddleShape)){ //if colliding with right paddle set isMovingLeftBool to true
+    if(CollisionTest(ball, PADDLERight.PaddleShape)){ //if colliding with right paddle set isMovingLeftBool to true
         isMovingLeft = true;
     }
     
