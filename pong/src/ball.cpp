@@ -65,7 +65,7 @@ void Ball::move(LeftPaddle& PADDLELeft, LeftPaddle PADDLERight){
     }
     
     
-}c   
+}
     
     
     
