@@ -35,44 +35,54 @@ Ball::Ball(){
 }
 
 void Ball::move(LeftPaddle& LEFT){
-    if(isMovingLeft && isMovingDown){ //moving left and down
-        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
+    if(isMovingLeft && (!CollisionTest(ball, LEFT.leftPaddleShape))){ //moving left and down
             moveLeft();
-            moveDown();
-        }
-        else{
-            isMovingLeft = false;
+    }
+    else{
+        isMovingLeft = false;
+    }
+    if(!isMovingLeft){
+        moveRight();
+    }
+    if(isMovingDown){
+        moveDown();
+        if(y >= 775){
+            isMovingDown = false;
         }
     }
+    if(!isMovingDown){
+        moveUp();
+        if(y <= 0){
+            isMovingDown = true;
+        }
+    }
+}
     
-    if(isMovingLeft && !isMovingDown){ //move left and up
-        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
-            if(!CollisionTest(ball, LEFT.leftPaddleShape)){
-                moveLeft();
-                moveUp();
-            }
-        }
-    }
     
-    if(!isMovingLeft && isMovingDown){ //moving right and down
-        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
-            moveRight();
-            moveDown();
-        }
-    }
-    if(!isMovingLeft && !isMovingDown){ //moving right and up
-        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
-            moveRight();
-            moveUp();
-        }
-    }
+//    if(isMovingLeft && !isMovingDown){ //move left and up
+//        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
+//            if(!CollisionTest(ball, LEFT.leftPaddleShape)){
+//                moveLeft();
+//                moveUp();
+//            }
+//        }
+//    }
+//
+//    if(!isMovingLeft && isMovingDown){ //moving right and down
+//        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
+//            moveRight();
+//            moveDown();
+//        }
+//    }
+//    if(!isMovingLeft && !isMovingDown){ //moving right and up
+//        if(!CollisionTest(ball, LEFT.leftPaddleShape)){
+//            moveRight();
+//            moveUp();
+//        }
+//    }
     
-    if(y >= 775){
-        isMovingDown = false;
-    }
-    if(y <= 0){
-        isMovingDown = true;
-    }
+   
+    
     
     
     
@@ -84,7 +94,7 @@ void Ball::move(LeftPaddle& LEFT){
     
    
     
-}
+
 
 
 
