@@ -31,6 +31,7 @@ private:
     bool isMovingDown;
     sf::FloatRect boundingBox;
     
+    
 public:
     void draw(sf::RenderWindow & window);
     
@@ -43,6 +44,8 @@ public:
     void moveDown();
     
     void move(Paddle& PADDLELeft, Paddle PADDLERight);
+    
+    void reset();
     
     //constructor
     Ball();

@@ -9,12 +9,9 @@
 #include "ball.hpp"
 #include "collision.hpp"
 
-
-
 void Ball::draw(sf::RenderWindow & window){
     window.draw(ball);
 }
-
 
 Ball::Ball(){
     originalX = 400;
@@ -23,8 +20,8 @@ Ball::Ball(){
     y = originalY;
     yUpperBounds = 0;
     yLowerBounds = 800;
-    xUpperBounds = 1200;
-    xLowerBounds = 0;
+    xUpperBounds = 1500;
+    xLowerBounds = -200;
     isMovingLeft = true;
     isMovingDown = true;
     ball.setRadius(20.f);
@@ -63,8 +60,15 @@ void Ball::move(Paddle& PADDLELeft, Paddle PADDLERight){
             isMovingDown = true;
         }
     }
+    if (ball.getPosition().x < xLowerBounds || ball.getPosition().x > xUpperBounds){
+        reset();
+    }
 }
     
+void Ball::reset(){
+        x = 600;
+        y = 400;
+}
 //    if(CollisionTest(ball, PADDLELeft.leftPaddleShape)){ //if colliding move
 //        isMovingLeft = false;
 //    }
