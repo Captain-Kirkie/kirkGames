@@ -9,9 +9,7 @@
 #include "ball.hpp"
 #include "collision.hpp"
 
-void Ball::draw(sf::RenderWindow & window){
-    window.draw(ball);
-}
+
 
 Ball::Ball(){
     originalX = 400;
@@ -31,7 +29,7 @@ Ball::Ball(){
     boundingBox = ball.getGlobalBounds();
 }
 //ball.movement
-void Ball::move(Paddle& PADDLELeft, Paddle PADDLERight){
+void Ball::move(Paddle& PADDLELeft, Paddle& PADDLERight){
     if(isMovingLeft && (!CollisionTest(ball, PADDLELeft.PaddleShape))){ //move left bool true and not colliding move left
         moveLeft();
     }
@@ -88,4 +86,11 @@ void Ball::moveUp(){
 void Ball::moveDown(){
         y+= .05;
         ball.setPosition(x, y);
+}
+
+float Ball::getX(){
+    return x;
+}
+void Ball::draw(sf::RenderWindow & window){
+    window.draw(ball);
 }

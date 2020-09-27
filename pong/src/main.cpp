@@ -12,6 +12,10 @@
 Paddle leftPaddle1;
 Paddle rightPaddle1(1150, 300);
 Ball ball1;
+
+//score
+int scoreLeft = 0;
+int scoreRight = 0;
 using namespace std;
 int main()
 {
@@ -28,7 +32,7 @@ int main()
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
-            
+            //paddle movement
             if(event.type == sf::Event::KeyPressed){
                 if (event.key.code == sf::Keyboard::A){
                     leftPaddle1.moveDown();
@@ -43,10 +47,21 @@ int main()
                 if (event.key.code == sf::Keyboard::Up){
                     rightPaddle1.moveUp();
                 }
-                
             }
         }
         
+        //simple score
+        if(ball1.getX() <= -199){//there is a bettter way to do this
+            scoreLeft++;
+            cout << "Player left score: " << scoreLeft << endl;
+            cout << "Player right score: " << scoreRight << endl;
+        }
+        if(ball1.getX() >= 1500){
+            scoreRight++;
+            cout << "Player left score: " << scoreLeft << endl;
+            cout << "Player right score: " << scoreRight << endl;
+        }
+       
         //ball movment
         ball1.move(leftPaddle1, rightPaddle1);
      //  ball1.moveDown();
@@ -54,10 +69,7 @@ int main()
         // clear the window with black color
         window.clear(sf::Color::Black);
 
-        
-        //paddle movement
-        
-
+ 
         //draw  calls
 //window.draw(shape);
     // window.draw(leftPaddle);

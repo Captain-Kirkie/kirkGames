@@ -33,6 +33,10 @@ private:
     
     
 public:
+    //constructor
+    Ball();
+    
+    //methods
     void draw(sf::RenderWindow & window);
     
     void moveLeft();
@@ -43,13 +47,12 @@ public:
    
     void moveDown();
     
-    void move(Paddle& PADDLELeft, Paddle PADDLERight);
+    void move(Paddle& PADDLELeft, Paddle& PADDLERight);
     
     void reset();
     
-    //constructor
-    Ball();
-    
+    float getX();
+
 };
 
 
