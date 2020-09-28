@@ -7,11 +7,15 @@
 #include <fstream>
 #include "paddle.hpp"
 #include "ball.hpp"
+#include "string"
 
 //create paddles
 Paddle leftPaddle1;
 Paddle rightPaddle1(1150, 300);
 Ball ball1;
+
+
+
 
 //score
 int scoreLeft = 0;
@@ -19,6 +23,21 @@ int scoreRight = 0;
 using namespace std;
 int main()
 {
+    //print out scores.
+    sf::Font font;
+    font.loadFromFile("resources/font.ttf");
+    if(!font.loadFromFile("resources/font.ttf")){
+        cout << "cannot load font from file!" << endl;
+    }
+    sf::Text text;
+    text.setFont(font);
+    text.setString("hello World"); //TODO:: get this to print out scores. (to_string)
+    text.setCharacterSize(24);
+    text.setFillColor(sf::Color::Yellow);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    
+    
+    
     // create the window
     sf::RenderWindow window(sf::VideoMode(1200, 800), "My window");
 
@@ -53,13 +72,13 @@ int main()
         //simple score
         if(ball1.getX() <= -199){//there is a bettter way to do this
             scoreLeft++;
-            cout << "Player left score: " << scoreLeft << endl;
-            cout << "Player right score: " << scoreRight << endl;
+//            cout << "Player left score: " << scoreLeft << endl;
+//            cout << "Player right score: " << scoreRight << endl;
         }
         if(ball1.getX() >= 1500){
             scoreRight++;
-            cout << "Player left score: " << scoreLeft << endl;
-            cout << "Player right score: " << scoreRight << endl;
+//            cout << "Player left score: " << scoreLeft << endl;
+//            cout << "Player right score: " << scoreRight << endl;
         }
        
         //ball movment
@@ -77,6 +96,7 @@ int main()
         leftPaddle1.draw(window);
         ball1.draw(window);
         rightPaddle1.draw(window);
+        window.draw(text);
         // end the current frame
         window.display();
     }
